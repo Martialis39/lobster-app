@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;   
 use App\Http\Controllers\Login;
 
 /*
@@ -15,6 +17,12 @@ use App\Http\Controllers\Login;
 */
 
 Route::get('/login', function () {
+    if(request()->has('from_signup') and request()->has('name')) {
+        return view('login', [
+            'name' => request()->name,
+            'from_signup' => 'true'
+        ]);
+    }
     return view('login');
 })->name('login');
 
@@ -25,7 +33,8 @@ Route::get('/signup', function () {
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = Auth::user();
+    return view('welcome', ['name' => isset($user) ? $user->name : null]);
 })->name('welcome');
 
 

@@ -3,8 +3,8 @@
     @if (isset($error))
             <h5 class="error"> Error! {{ $error }}</h5>
     @endif
-    @if (isset($success))
-            <h5 class="success"> Success! You are now logged in</h5>
+    @if (isset($from_signup))
+            <h5 class="success"> Success! User '{{$name}}' created</h5>
     @endif
     <div class="full-height flex-center">
         <form action="/login" method="post" class="form-example">

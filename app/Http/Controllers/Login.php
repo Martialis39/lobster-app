@@ -22,9 +22,8 @@ class Login extends Controller
             $user = User::where('name', $credentials['username'])->first();
             Auth::login($user);
             $request->session()->regenerate();
-            return view('login', [
-                'name' => $credentials['username'],
-                'success' => 'true'
+            return redirect()->route('welcome', [
+                'name' => $credentials['username']
             ]);
         } else {
             return view('login', [
@@ -52,9 +51,9 @@ class Login extends Controller
             $user = new User;
             $user->name = $request->username;
             $user->save();
-            return view('signup', [
+            return redirect()->route('login', [
                 'name' => $credentials['username'],
-                'success' => 'true'
+                'from_signup' => 'true'
             ]);
         }
     }
