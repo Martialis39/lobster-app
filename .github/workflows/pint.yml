@@ -1,0 +1,30 @@
+name: Pint
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: "8.1"
+      - uses: actions/checkout@v3
+      - name: Install pint
+        run: composer require laravel/pint --dev
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        with:
+          fileOutput: ""
+      - name: Show files
+        run: cat $HOME/files.txt
+      - name: Make the script files executable
+        run: chmod +x run_pint.sh
+
+      - name: Run pint
+        run: |
+          ./run_pint.sh < $HOME/files.txt
