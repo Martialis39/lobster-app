@@ -15,9 +15,9 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_DATABASE: artisan_test
-          MYSQL_ROOT_PASSWORD: "root"
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_USER: artisan_test
-          MYSQL_PASSWORD: ""
+          MYSQL_PASSWORD: test_password
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -44,4 +44,4 @@ jobs:
           php artisan setup:test-database
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --env=testing
+        run: php artisan test
