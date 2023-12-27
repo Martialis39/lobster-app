@@ -15,7 +15,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_DATABASE: artisan_test
-          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_ROOT_PASSWORD: "root"
           MYSQL_USER: artisan_test
           MYSQL_PASSWORD: ""
         ports:
