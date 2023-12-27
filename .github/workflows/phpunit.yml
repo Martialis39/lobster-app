@@ -39,7 +39,6 @@ jobs:
 
       - name: Set up database
         run: |
-          mysql -h 127.0.0.1 -u root -proot_password -e "GRANT DROP ON artisan_test.* TO 'artisan_test'@'localhost';"
           php artisan key:generate
           php artisan setup:test-database
 
