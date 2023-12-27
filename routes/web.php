@@ -40,7 +40,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/commute/create', [CommuteController::class, 'createForm'])->name('commute.create');
-Route::post('/commute/store', [Login::class, 'store'])->name('commute.store');
+Route::post('/commute/store', [CommuteController::class, 'store'])->name('commute.store');
 
 
 Route::post('/signup', [Login::class, 'signup']);
