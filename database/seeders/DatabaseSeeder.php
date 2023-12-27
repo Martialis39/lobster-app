@@ -1,6 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use Database\Factories\PlaceFactory;
+use Database\Seeders\PlaceSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,5 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
+        $this->call([
+            PlaceSeeder::class,
+            // CommuteSeeder::class,
+            // Other seeders...
+        ]);
     }
 }

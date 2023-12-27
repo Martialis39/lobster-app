@@ -1,3 +1,5 @@
+Use `$env:NODE_OPTIONS="--openssl-legacy-provider"` if `laravel mix` fails with an openssl error.
+
 ## Getting Started
 
 We provide a sample app using Laravel that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.
@@ -6,7 +8,7 @@ We provide a sample app using Laravel that you can deploy on App Platform. These
 
 ### Requirements
 
-* You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new.
+-   You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new.
 
 ## Deploying the App
 
@@ -49,6 +51,7 @@ You can learn more about the App Platform and how to manage and update your appl
 ## Deleting the App
 
 When you no longer need this sample application running live, you can delete it by following these steps:
+
 1. Visit the Apps control panel at https://cloud.digitalocean.com/apps.
 2. Navigate to the sample app.
 3. In the **Settings** tab, click **Destroy**.
