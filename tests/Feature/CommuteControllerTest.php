@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Commute;
+use App\Models\Place;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,13 +14,17 @@ class CommuteControllerTest extends TestCase
 
     public function test_can_create_commute()
     {
+
+        $place = Place::factory()->create();
         $data = [
-            'start_destination' => $this->faker->city,
-            'end_destination' => $this->faker->city,
+            'start_destination_id' => $place->id,
+            'end_destination_id' => $place->id,
             'distance' => $this->faker->randomFloat(2, 1, 100),
             'fuel_consumed' => $this->faker->randomFloat(2, 1, 50),
-            'duration' => $this->faker->time,
+            'duration_seconds' => $this->faker->randomDigit(),
         ];
+
+
 
         $response = $this->post(route('commute.store'), $data);
 

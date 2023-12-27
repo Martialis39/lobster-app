@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Commute extends Model
+class Place extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'start_destination_id',
-        'end_destination_id',
-        'distance',
-        'created_at',
-        'updated_at',
-        'fuel_consumed',
-        'duration_seconds',
+        'name',
+        'address',
+        // Add any other fields you have in your places table
     ];
+
+    public $timestamps = false; // Disable timestamps
 
     // Any additional model logic, relationships, etc.
 }

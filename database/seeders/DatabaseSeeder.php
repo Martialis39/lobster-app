@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Factories\PlaceFactory;
+use Database\Seeders\PlaceSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
         $this->call([
-            CommuteSeeder::class,
+            PlaceSeeder::class,
+            // CommuteSeeder::class,
             // Other seeders...
         ]);
     }
