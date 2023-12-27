@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;   
 use App\Http\Controllers\Login;
+use App\Http\Controllers\CommuteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,9 @@ Route::get('/', function () {
     $user = Auth::user();
     return view('welcome', ['name' => isset($user) ? $user->name : null]);
 })->name('welcome');
+
+Route::get('/commute/create', [CommuteController::class, 'createForm'])->name('commute.create');
+Route::post('/commute/store', [Login::class, 'store'])->name('commute.store');
 
 
 Route::post('/signup', [Login::class, 'signup']);
